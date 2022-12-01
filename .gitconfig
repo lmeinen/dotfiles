@@ -1,0 +1,15 @@
+[include]
+	path = /home/lasse/.config/git/.gitconfig-main
+[includeIf "gitdir:/home/lasse/uni/**"]
+	path = /home/lasse/.config/git/.gitconfig-uni
+[includeIf "gitdir:/home/lasse/work/**"]
+	path = /home/lasse/.config/git/.gitconfig-work
+[commit]
+	template = /home/lasse/.config/git/gitmessage.txt
+[core]
+	excludesfile = /home/lasse/.config/git/gitignore
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[init]
+	defaultBranch = main
+
