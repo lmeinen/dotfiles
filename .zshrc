@@ -85,7 +85,8 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH=$PATH:$HOME/.cargo/bin:$(go env GOPATH)/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.dotnet/tools
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -109,6 +110,11 @@ export PATH=$PATH:$HOME/.cargo/bin:$(go env GOPATH)/bin
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+###### ETH Settings ######
+alias ethup='sudo nmcli con up eth --ask'
+alias ethdown='sudo nmcli con down eth'
+##########################
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
