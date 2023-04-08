@@ -35,7 +35,7 @@ for_window [class="^.*"] border pixel 2
 exec --no-startup-id dex --autostart --environment i3
 
 # Set wallpaper
-set $wallpaper $HOME/.config/i3/wallpapers/spring-rain.png
+set $wallpaper $HOME/.config/i3/wallpapers/polygon-mountains.png
 exec_always --no-startup-id feh --bg-scale $wallpaper
 
 # Set colorscheme 
@@ -45,14 +45,17 @@ exec_always --no-startup-id wal --theme solarized
 exec --no-startup-id sleep 1 && $HOME/.config/polybar/launch.sh
 
 # Start picom
-exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf a
+exec --no-startup-id picom --config $HOME/.config/picom/picom.conf -b
+
+# Start dunst
+exec --no-startup-id dunst
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec xset s on
-exec xset s 600 30
-exec_always --no-startup-id xss-lock --notifier=$HOME/.config/i3/dim-screen.sh -- i3lock --nofork --ignore-empty-password --tiling --image $wallpaper 
-bindsym $mod+Delete exec --no-startup-id loginctl lock-session
+exec_always xset s on
+exec_always xset s 300 60
+exec_always --no-startup-id xss-lock --notifier=$HOME/.config/i3/dim-screen.sh -- i3lock-fancy --nofork
+bindsym $mod+Delete exec --no-startup-id i3lock-fancy --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
