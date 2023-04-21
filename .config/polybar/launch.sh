@@ -6,6 +6,7 @@
 polybar-msg cmd quit
 
 # Launch Polybar, using default config location ~/.config/polybar/config.ini
-polybar -l trace -r -c $HOME/.config/polybar/config.ini mybar 2>&1 | tee -a /tmp/polybar.log & disown
-
-echo "Polybar launched..."
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+	MONITOR=$m polybar --reload mybar &
+	echo $m
+done
