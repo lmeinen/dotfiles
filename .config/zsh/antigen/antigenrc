@@ -1,0 +1,22 @@
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle gitfast
+antigen bundle command-not-found
+antigen bundle history-substring-search
+antigen bundle colored-man-pages
+
+# Bundles from user repos.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme
+antigen theme spaceship-prompt/spaceship-prompt
+
+# Tell Antigen that you're done.
+antigen apply
+
+# Bind keyboard shortcuts to history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
