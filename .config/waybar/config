@@ -19,8 +19,8 @@
         "cpu",
         "memory",
         "battery",
-        "tray",
-        "clock"
+        "clock",
+	"custom/powermenu"
     ],
     "sway/workspaces": {
         "disable-scroll": true,
@@ -37,10 +37,6 @@
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
     },
     "clock": {
         "format-alt": "{:%Y-%m-%d}"
@@ -70,10 +66,14 @@
         ]
     },
     "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠"
+        "format": "{essid} {icon}",
+        "format-disconnected": "",
+	"format-icons": [
+	    "",
+	    "",
+	    "",
+	    ""
+	]
     },
     "pulseaudio": {
         //"scroll-step": 1,
@@ -103,5 +103,10 @@
         "interval": 30, // Remove this if your script is endless and write in loop
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
         "exec-if": "pgrep spotify"
+    },
+    "custom/powermenu": {
+	"format": "   ",
+	"on-click": "swaymsg 'exec $HOME/.config/rofi/powermenu/type-1/powermenu.sh'",
+	"on-click-right": "swaymsg 'exec powermenu_t1'"
     }
 }

@@ -37,6 +37,7 @@ window {
     anchor:                      center;
     fullscreen:                  true;
     width:                       1366px;
+    height:			 768px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -47,8 +48,8 @@ window {
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @selected;
+    background-color:            black / 60%;
     cursor:                      "default";
-    background-color:            @background;
 }
 
 /*****----- Main Box -----*****/

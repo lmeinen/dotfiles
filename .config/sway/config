@@ -108,6 +108,9 @@ bindsym $mod+x exec swaymsg -t get_outputs | jq '.[(map(.focused) | index(true) 
     # Start your launcher
     bindsym $mod+d exec $menu
 
+    # Enter powermenu
+    bindsym $mod+q exec $HOME/.config/rofi/powermenu/type-3/powermenu.sh
+
 
 
     # Drag floating windows by holding down $mod and left mouse button.
