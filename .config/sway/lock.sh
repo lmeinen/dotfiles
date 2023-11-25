@@ -18,7 +18,6 @@ do
 done
 
 swaylock \
-  --ignore-empty-password \
   --indicator-radius 160 \
   --indicator-thickness 20 \
   --inside-color 00000000 \

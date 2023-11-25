@@ -45,6 +45,7 @@ window#waybar {
 #memory,
 #network,
 #pulseaudio,
+#backlight,
 #custom-spotify,
 #tray,
 #mode {

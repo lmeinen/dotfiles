@@ -17,7 +17,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show=drun --lines=5 --prompt=""
+set $menu "rofi -show drun -theme $HOME/.config/rofi/launchers/type-3/style-2.rasi"
 
 font pango:JetBrainsMono Nerd Font 10
 
@@ -32,6 +32,7 @@ smart_borders on
 gaps inner 5
 
 for_window [class="^.*"] border pixel 2
+for_window [app_id="(?i)code-url-handler"] opacity set 0.95
 
 ### Shell commands
 
@@ -44,7 +45,7 @@ exec dunst
 ### Output configuration
 
 # Set wallpaper
-set $wallpaper $HOME/.config/sway/wallpapers/totoro.png
+set $wallpaper $HOME/.config/sway/wallpaper.png
 output "*" bg $wallpaper fill
 
 ### Idle configuration

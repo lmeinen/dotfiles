@@ -14,6 +14,7 @@
     ],
     "modules-right": [
         "pulseaudio",
+	"backlight",
         "network",
         "cpu",
         "memory",
@@ -27,11 +28,11 @@
         "format": "{value}: {icon}",
         "format-icons": {
             "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": ""
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
         }
     },
     "sway/mode": {
@@ -54,8 +55,8 @@
         "bat": "BAT0",
         "states": {
             // "good": 95,
-            "warning": 30,
-            "critical": 15
+            "warning": 15,
+            "critical": 10
         },
         "format": "{capacity}% {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -92,6 +93,9 @@
             ]
         },
         "on-click": "pavucontrol"
+    },
+    "backlight": {
+	"format": "{percent}% "
     },
     "custom/spotify": {
         "format": " {}",
