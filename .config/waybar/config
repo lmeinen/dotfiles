@@ -6,11 +6,10 @@
     // Choose the order of the modules
     "modules-left": [
         "sway/workspaces",
-        "sway/mode",
-        "custom/spotify"
+        "sway/mode"
     ],
     "modules-center": [
-        "sway/window"
+	"custom/spotify"
     ],
     "modules-right": [
         "pulseaudio",
@@ -98,11 +97,12 @@
 	"format": "{percent}% "
     },
     "custom/spotify": {
-        "format": " {}",
-        "max-length": 40,
-        "interval": 30, // Remove this if your script is endless and write in loop
-        "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
-        "exec-if": "pgrep spotify"
+        "max-length": "40",
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
+	"exec-if": "pgrep spotify",
+	"return-type": "json",
+	"escape": true,
+	"on-click": "playerctl --player=spotify play-pause"
     },
     "custom/powermenu": {
 	"format": "   ",
