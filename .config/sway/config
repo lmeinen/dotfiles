@@ -19,6 +19,8 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu "rofi -show drun -theme $HOME/.config/rofi/launchers/type-3/style-2.rasi"
 
+set $powermenu "$HOME/.config/rofi/powermenu/type-3/powermenu.sh"
+
 font pango:JetBrainsMono Nerd Font 10
 
 ### Container appearance
@@ -109,7 +111,7 @@ bindsym $mod+x exec swaymsg -t get_outputs | jq '.[(map(.focused) | index(true) 
     bindsym $mod+d exec $menu
 
     # Enter powermenu
-    bindsym $mod+q exec $HOME/.config/rofi/powermenu/type-3/powermenu.sh
+    bindsym $mod+q exec $powermenu
 
 
 
