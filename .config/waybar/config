@@ -9,17 +9,14 @@
         "sway/mode"
     ],
     "modules-center": [
-	"custom/spotify"
+	"clock"
     ],
     "modules-right": [
         "pulseaudio",
-	"backlight",
         "network",
         "cpu",
         "memory",
-        "battery",
-        "clock",
-	"custom/powermenu"
+        "battery"
     ],
     "sway/workspaces": {
         "disable-scroll": true,
@@ -38,7 +35,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "clock": {
-        "format-alt": "{:%Y-%m-%d}"
+	"format": "{:%a %d %b %H:%M }"
     },
     "cpu": {
         "format": "{usage}% "
@@ -49,13 +46,11 @@
     "battery": {
         "bat": "BAT0",
         "states": {
-            // "good": 95,
             "warning": 15,
             "critical": 10
         },
         "format": "{capacity}% {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+	"format-charging": "{capacity}% ",
         "format-icons": [
             "",
             "",

@@ -18,10 +18,9 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu "rofi -show drun -theme $HOME/.config/rofi/launchers/type-3/style-2.rasi"
-
 set $powermenu "$HOME/.config/rofi/powermenu/type-3/powermenu.sh"
-
-font pango:JetBrainsMono Nerd Font 10
+set $light "$HOME/.config/sway/backlight.sh"
+set $volume "$HOME/.config/sway/volume.sh"
 
 ### Container appearance
 
@@ -38,11 +37,13 @@ for_window [app_id="(?i)code-url-handler"] opacity set 0.95
 
 ### Shell commands
 
-# Set colorscheme
-exec wal --theme solarized
-
 # Start dunst
 exec dunst
+
+# Auto nighlight for Zurich
+exec wlsunset -l 47.3 -L 8.6
+
+exec_always --no-startup-id rm $HOME/.config/sway/.lockfile
 
 ### Output configuration
 
@@ -82,14 +83,14 @@ input * {
 bindsym $mod+Delete exec $HOME/.config/sway/lock.sh -i
 
 # Use amixer to adjust volume in ALSA
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume        exec $volume inc 5
+bindsym XF86AudioLowerVolume        exec $volume dec 5
+bindsym XF86AudioMute               exec $volume mute
+bindsym XF86AudioMicMute exec --no-startup-id pulseaudio-ctl mute-input
 
 # Use light to adjust brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec $light dec 5
+bindsym XF86MonBrightnessUp exec $light inc 5
 
 # Use grimshot as screenshot utility
 bindsym Print exec --no-startup-id grimshot copy area
@@ -258,5 +259,23 @@ bindsym $mod+r mode "resize"
 bar {
     swaybar_command waybar
 }
+
+# class                 border  bground text    indicator child_border
+#client.focused #848484 #848484 #282A36 #ffffff  #ffffff
+#client.focused #0C0C0C #0C0C0C #ffffff #ffffff  #ffffff
+#client.focused #c6c6c6 #c6c6c6 #ffffff #ffffff  #ffffff
+#client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+
+#client.focused #484e50 #484e50 #ffffff #ffffff  #ffffff
+#client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+#client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+#client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+#client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.focused          #2D2D2D #2D2D2D #ffffff #ffffff   #839496
+client.focused_inactive #0f1212 #0f1212 #ffffff #0f1212   #0f1212
+client.unfocused        #2D2D2D #000000 #c6c6c6 #000000   #000000
+client.urgent           #0f1212 #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #000000 #000000 #F8F8F2 #000000   #000000
 
 include /etc/sway/config.d/*

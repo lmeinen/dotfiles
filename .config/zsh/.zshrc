@@ -16,11 +16,8 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 unsetopt pushd_ignore_dups
 
-# Run wal to apply generated color scheme
-(cat ~/.cache/wal/sequences &)
-
 # Load Ubique terminal magic
 source ~/.terminal-magic/env
 
 # Load nvm
-source /usr/share/nvm/init-nvm.sh
+# source /usr/share/nvm/init-nvm.sh

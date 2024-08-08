@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrains Mono", "Font Awesome 6 Brands", "Font Awesome 6 Free", monospace;
+    font-family: monospace;
     font-size: 13px;
     min-height: 0;
 }
@@ -13,7 +13,7 @@ window#waybar {
 
 #window {
     font-weight: bold;
-    font-family: "JetBrains Mono", monospace;
+    font-family: monospace;
 }
 
 /*
@@ -49,7 +49,7 @@ window#waybar {
 #custom-spotify,
 #tray,
 #mode {
-    padding: 0 3px;
+    padding: 1px 3px 0px 3px;
     margin: 0 2px;
 }
 
@@ -87,9 +87,6 @@ window#waybar {
 
 #network {}
 
-#network.disconnected {
-    background: #f53c3c;
-}
 
 #pulseaudio {}
 

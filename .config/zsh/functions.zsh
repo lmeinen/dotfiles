@@ -10,6 +10,14 @@ function dlogs() {
 	DOCKER_HOST=ssh://$remote docker logs -f -n 100 $container | bat --paging=never -l log
 }
 
+function stopwatch() {
+	start=$(date +%s)
+	while true; do
+ 		time="$(($(date +%s) - $start))"
+ 		printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+	done
+}
+
 # Set up a cleanup function to be triggered upon script exit
 __vpn_cleanup()
 {
@@ -72,41 +80,3 @@ function pretty() {
 	python -m json.tool < $1 | bat -l json
 }
 
-function gobra_cleanup() {
-	bash 
-}
-
-function gobra_cleanup() {
-	bash $ADEM/gobra-post.sh
-}
-
-function gobra() {
-	ADEM="$HOME/uni/thesis/adem-gobra"
-
-	if [[ "$*" == *"--help"* || "$*" == *"-h"* ]]
-	then
-    		java -jar -Xss128m $HOME/repos/gobra/target/scala-2.13/gobra.jar \
-			--help
-		return
-	fi
-
-	trap gobra_cleanup EXIT
-
-	if [ ! -d /tmp/gobra_out ]; then
-		mkdir /tmp/gobra_out
-	fi
-
-	bash $ADEM/gobra-pre.sh
-
-	java -jar -Xss128m $HOME/repos/gobra/target/scala-2.13/gobra.jar \
-		--gobraDirectory /tmp/gobra_out \
-		--include $ADEM $ADEM/gobstubs \
-		--module github.com/adem-wg/adem-proto/ \
-		--noStreamErrors \
-		--parallelizeBranches \
-		--z3Exe /usr/bin/z3 \
-		--onlyFilesWithHeader \
-		--projectRoot $ADEM/pkg \
-		--recursive \
-		"${@:1}"
-}
