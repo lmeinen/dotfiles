@@ -17,6 +17,9 @@ do
   esac
 done
 
+# ensure 1PW is locked
+1password --lock
+
 swaylock \
   --indicator-radius 160 \
   --indicator-thickness 20 \

@@ -12,7 +12,6 @@
 	"clock"
     ],
     "modules-right": [
-        "pulseaudio",
         "network",
         "cpu",
         "memory",
@@ -68,36 +67,6 @@
 	    "",
 	    ""
 	]
-    },
-    "pulseaudio": {
-        //"scroll-step": 1,
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
-        "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [
-                "",
-                ""
-            ]
-        },
-        "on-click": "pavucontrol"
-    },
-    "backlight": {
-	"format": "{percent}% "
-    },
-    "custom/spotify": {
-        "max-length": "40",
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
-	"exec-if": "pgrep spotify",
-	"return-type": "json",
-	"escape": true,
-	"on-click": "playerctl --player=spotify play-pause"
     },
     "custom/powermenu": {
 	"format": "   ",

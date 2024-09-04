@@ -2,6 +2,7 @@
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.local/share/texlive/bin/x86_64-linux
+export PATH=$PATH:$HOME/work/istio-1.23.0/bin
 
 export ADOTDIR=$ZDOTDIR/antigen/.antigen
 export SPACESHIP_CONFIG=$ZDOTDIR/antigen/spaceship.zsh

@@ -80,3 +80,13 @@ function pretty() {
 	python -m json.tool < $1 | bat -l json
 }
 
+# Switch alacritty between light and dark mode
+function dark() {
+        ln -fs $HOME/.config/alacritty/themes/solarized_dark.toml $HOME/.config/alacritty/themes/_active.toml
+        touch $HOME/.config/alacritty/alacritty.toml
+}
+
+function light() {
+        ln -fs $HOME/.config/alacritty/themes/solarized_light.toml $HOME/.config/alacritty/themes/_active.toml
+        touch $HOME/.config/alacritty/alacritty.toml
+}
