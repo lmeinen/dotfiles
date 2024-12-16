@@ -17,9 +17,6 @@ do
   esac
 done
 
-# ensure 1PW is locked
-1password --lock
-
 swaylock \
   --indicator-radius 160 \
   --indicator-thickness 20 \
@@ -35,13 +32,11 @@ swaylock \
   --ring-ver-color "$color3" \
   --line-uses-ring \
   --line-color 00000000 \
-  --font 'JetBrains Mono:style=Regular:size=21' \
-  --text-color 00000000 \
-  --text-clear-color 00000000 \ #"$color2" \
-  --text-wrong-color 00000000 \ #"$color5" \
-  --text-ver-color 00000000 \ #"$color4" \
+  --text-clear-color 00000000 \
+  --text-wrong-color 00000000 \
+  --text-ver-color 00000000 \
   --separator-color 00000000 \
-  --screenshot \
+  --screenshots \
   "${grace[@]}" \
   --effect-blur 10x10 \
   --effect-compose "100x100;center;$HOME/.config/sway/lock.png" \
