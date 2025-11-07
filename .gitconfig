@@ -1,9 +1,5 @@
 [include]
 	path = /home/lasse/.config/git/.gitconfig-main
-[includeIf "gitdir:/home/lasse/uni/**"]
-	path = /home/lasse/.config/git/.gitconfig-uni
-[includeIf "gitdir:/home/lasse/work/**"]
-	path = /home/lasse/.config/git/.gitconfig-work
 [commit]
 	template = /home/lasse/.config/git/gitmessage.txt
 [core]
