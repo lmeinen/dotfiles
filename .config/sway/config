@@ -43,6 +43,9 @@ exec dunst
 # Auto nighlight for Zurich
 exec wlsunset -l 47.3 -L 8.6
 
+# Start udiskie
+exec udiskie &
+
 exec_always --no-startup-id rm $HOME/.config/sway/.lockfile
 
 ### Output configuration
