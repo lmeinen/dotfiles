@@ -20,15 +20,7 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
-        "format": "{value}: {icon}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": ""
-        }
+        "format": " {value} "
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -37,10 +29,10 @@
 	"format": "{:%a %d %b %H:%M }"
     },
     "cpu": {
-        "format": "{usage}% "
+        "format": "CPU {usage}%"
     },
     "memory": {
-        "format": "{}% "
+        "format": "MEM {}%"
     },
     "battery": {
         "bat": "BAT0",
@@ -48,29 +40,9 @@
             "warning": 15,
             "critical": 10
         },
-        "format": "{capacity}% {icon}",
-	"format-charging": "{capacity}% ",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
+        "format": "BAT {capacity}%"
     },
     "network": {
-        "format": "{essid} {icon}",
-        "format-disconnected": "",
-	"format-icons": [
-	    "",
-	    "",
-	    "",
-	    ""
-	]
-    },
-    "custom/powermenu": {
-	"format": "   ",
-	"on-click": "swaymsg 'exec $HOME/.config/rofi/powermenu/type-1/powermenu.sh'",
-	"on-click-right": "swaymsg 'exec powermenu_t1'"
+        "format": "{essid} NET"
     }
 }
