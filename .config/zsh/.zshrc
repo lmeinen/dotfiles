@@ -15,9 +15,3 @@ source $ZDOTDIR/aliases.zsh
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 unsetopt pushd_ignore_dups
-
-# Load Ubique terminal magic
-source ~/.terminal-magic/env
-
-# Load nvm
-# source /usr/share/nvm/init-nvm.sh

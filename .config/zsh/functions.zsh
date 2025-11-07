@@ -1,51 +1,11 @@
 # place custom functions here (can e.g. be used for custom aliases)
 
-function dlogs() {
-	remote=$1
-	container=$2
-	connect ub
-
-	trap '__vpn_cleanup 2' SIGINT
-
-	DOCKER_HOST=ssh://$remote docker logs -f -n 100 $container | bat --paging=never -l log
-}
-
 function stopwatch() {
 	start=$(date +%s)
 	while true; do
  		time="$(($(date +%s) - $start))"
  		printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
 	done
-}
-
-# Set up a cleanup function to be triggered upon script exit
-__vpn_cleanup()
-{
-    SIGNAL=$1
-
-    if nmcli con show --active | grep --quiet -E 'wireguard\s+ub' ; then
-	    disconnect ub;
-    fi
-
-    # when this function was called due to receiving a signal
-    # disable the previously set trap and kill yourself with
-    # the received signal
-    if [ -n "$SIGNAL" ]
-    then
-        trap $SIGNAL
-        kill -${SIGNAL} $$
-    fi
-}
-
-function up_and_down() {
-    echo "Setting up VPN connection..."
-    connect ub
-    echo ""
-
-    if nmcli con show --active | grep --quiet -E 'wireguard\s+ub' ; then
-        echo "Tearing down VPN connection..."
-	    disconnect ub
-    fi
 }
 
 function volley_fr() {
@@ -89,4 +49,8 @@ function dark() {
 function light() {
         ln -fs $HOME/.config/alacritty/themes/solarized_light.toml $HOME/.config/alacritty/themes/_active.toml
         touch $HOME/.config/alacritty/alacritty.toml
+}
+
+function layout_vert_a() {
+	swaymsg 'output eDP-1 pos 0 1200' ; swaymsg 'output DP-1 pos 0 0'
 }

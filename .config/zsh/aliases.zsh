@@ -5,6 +5,8 @@ alias o=rifle
 # Dotfiles git setup
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# ETH VPN
-alias ethup='sudo nmcli con up eth --ask'
-alias ethdown='sudo nmcli con down eth'
+# Cmake versioning
+alias cmake3='/opt/cmake/3.31.8/bin/cmake'
+
+# Python 
+alias py='python3'
