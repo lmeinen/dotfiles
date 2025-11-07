@@ -1,3 +1,5 @@
 [user]
 	name = lmeinen
-	email = meinen@ubique.ch
+	email = lasse.meinen@proton.me
+[core]
+    sshCommand = ssh -i /home/lasse/.ssh/github
