@@ -18,7 +18,6 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu "rofi -show drun -theme $HOME/.config/rofi/launchers/type-3/style-2.rasi"
-set $powermenu "$HOME/.config/rofi/powermenu/type-3/powermenu.sh"
 set $light "$HOME/.config/sway/backlight.sh"
 set $volume "$HOME/.config/sway/volume.sh"
 
@@ -30,9 +29,10 @@ default_border pixel 0
 smart_gaps inverse_outer
 smart_borders on
 
-gaps inner 5
+gaps outer 0
+gaps inner 0
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 for_window [app_id="(?i)code-url-handler"] opacity set 0.95
 
 ### Shell commands
@@ -109,14 +109,10 @@ bindsym $mod+x exec swaymsg -t get_outputs | jq '.[(map(.focused) | index(true) 
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
-
-    # Enter powermenu
-    bindsym $mod+q exec $powermenu
-
 
 
     # Drag floating windows by holding down $mod and left mouse button.

@@ -1,9 +1,6 @@
 * {
-    border: none;
-    border-radius: 0;
     font-family: monospace;
     font-size: 13px;
-    min-height: 0;
 }
 
 window#waybar {
@@ -11,60 +8,36 @@ window#waybar {
     color: #93a1a1;
 }
 
-#window {
-    font-weight: bold;
-    font-family: monospace;
+.modules-left {
+	margin: 0px 0px 0px 4px
 }
 
-/*
-#workspaces {
-    padding: 0 5px;
+.modules-right {
+	margin: 0px 10px 0px 0px
 }
-*/
 
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
+    padding: 0px 4px 0px 0px;
     color: #93a1a1;
-    border-top: 2px solid transparent;
 }
 
 #workspaces button.focused {
     color: #dc322f;
-    border-top: 2px solid #dc322f;
 }
 
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
-}
 
-#battery,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#backlight,
-#tray,
-#clock,
-#pulseaudio-slider,
-#mode {
-    padding: 6px 3px 0px 3px;
-    margin: 0 2px;
-    border-radius: 4px;
+#workspaces button:hover {
+	box-shadow: none;
+	text-shadow: none;
+	background: none;
+	transition: none;
+	border-color: transparent;
+
 }
 
 #clock {
     font-weight: bold;
 }
-
-#battery {}
-
-#battery icon {
-    color: red;
-}
-
-#battery.charging {}
 
 @keyframes blink {
     to {
@@ -82,15 +55,12 @@ window#waybar {
     animation-direction: alternate;
 }
 
-#cpu {}
+#battery.critical:not(.charging) {
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
-#memory {}
-
-#network {}
-
-
-#pulseaudio {}
-
-#pulseaudio.muted {}
-
-#tray {}
