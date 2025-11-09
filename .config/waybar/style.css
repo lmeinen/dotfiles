@@ -1,11 +1,11 @@
 * {
     font-family: monospace;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 window#waybar {
     background: transparent;
-    color: #93a1a1;
+    color: #c6d0f5;
 }
 
 .modules-left {
@@ -18,11 +18,11 @@ window#waybar {
 
 #workspaces button {
     padding: 0px 4px 0px 0px;
-    color: #93a1a1;
+    color: #838ba7;
 }
 
 #workspaces button.focused {
-    color: #dc322f;
+    color: #c6d0f5;
 }
 
 
