@@ -18,6 +18,7 @@ plugins=(
 	history-substring-search
 	colored-man-pages
 	zsh-autosuggestions
+	poetry
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -36,3 +37,5 @@ unsetopt pushd_ignore_dups
 
 # Adds Fish shell-like syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH=$PATH:/home/lasse/.spicetify
