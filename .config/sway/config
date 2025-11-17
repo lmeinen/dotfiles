@@ -210,7 +210,6 @@ assign [class="(?i)firefox"] → workspace number 1
 assign [app_id="(?i)Alacritty"] → workspace number 2
 assign [class="(?i)UXTerm"] → workspace number 2
 assign [app_id="(?i)code-url-handler"] → workspace number 3
-assign [class="(?i)jetbrains-idea"] → workspace number 4
 assign [class="(?i)spotify"] → workspace number 5
 
 #
